@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pdfs_test/pages/cached_pdfview_page.dart';
 
+import 'pages/advance_pdf_viewer.dart';
 import 'pages/pdfview_page.dart';
 
 void main() {
@@ -63,12 +64,16 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               _buildFlutterPdfViewSection(),
               _buildPackageSession(
-                'TODO native_pdf_view:',
-                onAsset: () {},
-                onURL: () {},
+                'advance_pdf_viewer (not working):',
+                onAsset: () {
+                  _pushPage(AdvancePdfViewer());
+                },
+                onURL: () {
+                  _pushPage(AdvancePdfViewer());
+                },
               ),
               _buildPackageSession(
-                'TODO advance_pdf_viewer:',
+                'TODO native_pdf_view:',
                 onAsset: () {},
                 onURL: () {},
               ),
