@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pdfs_test/pages/cached_pdfview_page.dart';
 
 import 'pages/pdfview_page.dart';
 
@@ -46,21 +47,31 @@ class _MyHomePageState extends State<MyHomePage> {
               _buildPackageSession(
                 'flutter_cached_pdfview:',
                 onAsset: () {
-                  _pushPage(PDFViewPage());
+                  _pushPage(
+                    PDFViewerFromAsset(
+                      pdfAssetPath: 'assets/pdf/file-example.pdf',
+                    ),
+                  );
                 },
-                onURL: () {},
+                onURL: () {
+                  _pushPage(
+                    PDFViewerCachedFromUrl(
+                      url: 'http://africau.edu/images/default/sample.pdf',
+                    ),
+                  );
+                },
               ),
+              _buildFlutterPdfViewSection(),
               _buildPackageSession(
-                'native_pdf_view:',
+                'TODO native_pdf_view:',
                 onAsset: () {},
                 onURL: () {},
               ),
               _buildPackageSession(
-                'advance_pdf_viewer:',
+                'TODO advance_pdf_viewer:',
                 onAsset: () {},
                 onURL: () {},
               ),
-              _buildFlutterPdfViewSection()
             ],
           ),
         ),
