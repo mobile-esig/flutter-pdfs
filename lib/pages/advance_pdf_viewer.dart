@@ -24,7 +24,7 @@ class _AdvancePdfViewerState extends State<AdvancePdfViewer> {
     setState(() => _isLoading = false);
   }
 
-  changePDF(value) async {
+  openPDF(value) async {
     setState(() => _isLoading = true);
     if (value == 1) {
       document = await PDFDocument.fromAsset('assets/demo-landscape.pdf');
@@ -56,19 +56,19 @@ class _AdvancePdfViewerState extends State<AdvancePdfViewer> {
             ListTile(
               title: Text('Load from Assets'),
               onTap: () {
-                changePDF(1);
+                openPDF(1);
               },
             ),
             ListTile(
               title: Text('Load from URL'),
               onTap: () {
-                changePDF(2);
+                openPDF(2);
               },
             ),
             ListTile(
               title: Text('Restore default'),
               onTap: () {
-                changePDF(3);
+                openPDF(3);
               },
             ),
           ],
